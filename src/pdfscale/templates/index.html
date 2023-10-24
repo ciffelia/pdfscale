@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>pdfscale</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      * {
+        margin: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        font-family: 'Helvetica Neue', Arial, Meiryo, sans-serif;
+      }
+      main {
+        width: min(90vw, 400px);
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 30px;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
+        background-color: white;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+      input[type='file'] {
+        padding: 30px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .scale-select {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      input[type='submit'] {
+        padding: 10px;
+        font-size: 1.2em;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <form action="/convert" enctype="multipart/form-data" method="post">
+        <input type="file" name="file" accept="application/pdf" />
+        <div class="scale-select">
+          <label>
+            <input type="radio" name="scale" value="a4" checked />
+            Scale to fit A4
+          </label>
+          <label>
+            <input type="radio" name="scale" value="b5" />
+            Scale to fit JIS B5
+          </label>
+          <label>
+            <input type="radio" name="scale" value="50percent" />
+            Scale to 50%
+          </label>
+        </div>
+        <input type="submit" value="Convert" />
+      </form>
+    </main>
+  </body>
+</html>
