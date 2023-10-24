@@ -1,13 +1,9 @@
 [project]
 name = "pdfscale"
 version = "0.1.0"
-description = "Add your description here"
-authors = [
-    { name = "Ciffelia", email = "mc.prince.0203@gmail.com" }
-]
 dependencies = [
-    "pypdf>=3.16.4",
     "Flask>=3.0.0",
+    "pypdf>=3.16.4",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
