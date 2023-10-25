@@ -21,7 +21,7 @@ def convert():
         return make_bad_request_response()
 
     scale = request.form.get("scale")
-    if scale not in ["a4", "b5", "50percent"]:
+    if scale not in ["a4", "b5"]:
         return make_bad_request_response()
 
     try:
@@ -38,8 +38,6 @@ def convert():
             scale_to_fit(page, a4_height)
         elif scale == "b5":
             scale_to_fit(page, b5_height)
-        elif scale == "50percent":
-            page.scale_by(0.5)
         writer.add_page(page)
 
     writer.add_metadata(reader.metadata)
