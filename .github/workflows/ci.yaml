@@ -44,4 +44,4 @@ jobs:
             ghcr.io/ciffelia/pdfscale:git-${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          #push: ${{ github.ref == 'refs/heads/main' }}
+          push: ${{ github.ref == 'refs/heads/main' }}
