@@ -9,6 +9,15 @@ from .paper_size import a4_height, b5_height
 app = Flask(__name__)
 
 
+@app.after_request
+def after_request(response):
+    response.headers["Content-Security-Policy"] = (
+        "default-src 'self'; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'none'; frame-ancestors 'none';"
+    )
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    return response
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
