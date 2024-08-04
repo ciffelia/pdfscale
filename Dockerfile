@@ -1,4 +1,4 @@
-FROM python:3.12.0-slim-bookworm
+FROM python:3.12.4-slim-bookworm
 
 RUN useradd --create-home --user-group pdfscale
 USER pdfscale
