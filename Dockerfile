@@ -6,12 +6,12 @@ WORKDIR /home/pdfscale/app
 
 COPY requirements.lock .
 
-RUN sed '/^-e/d' requirements.lock > requirements.txt && \
-    pip install -r requirements.txt
+RUN sed -i '/^-e/d' requirements.lock && \
+    PYTHONDONTWRITEBYTECODE=1 pip install --no-cache-dir -r requirements.lock
 
 COPY . .
 
-RUN pip install --no-deps -e .
+RUN PYTHONDONTWRITEBYTECODE=1 pip install --no-cache-dir --no-deps -e .
 
 EXPOSE 8000
 
